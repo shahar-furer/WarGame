@@ -4,8 +4,8 @@
 
 #ifndef WARGAME_THILA_SOLDIER_HPP
 #define WARGAME_THILA_SOLDIER_HPP
-
-
+#include <iostream>
+using namespace std;
 class Soldier {
 public:
     int health;
@@ -14,7 +14,8 @@ public:
     int hp;
 
 public:
-    Soldier(int h,int d,int num_p):health(h),damage(d),num_team(num_p){}
+    Soldier(int h,int d,int num_p):health(h),damage(d),num_team(num_p){
+    }
     int get_health(){return health;}
     void set_health(int health){this->health=health;}
     int get_damage(){return damage;}
@@ -26,8 +27,9 @@ public:
 //////////////////////
 class FootSoldier: public Soldier {
 public:
-    FootSoldier(int num_p): Soldier(100, 10, num_p){}
+    FootSoldier(int num_p): Soldier(100, 10, num_p){
 
+    }
 };
 /////////////////////
 class FootCommander : public FootSoldier {
@@ -35,10 +37,12 @@ public:
     FootCommander(int num_p): FootSoldier(num_p){
         this->damage=150;
         this->health=20;
+
     }
 
 
 };
+
 /////////////////////
 class Sniper : public Soldier {
 public:
