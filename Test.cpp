@@ -3,7 +3,7 @@
 //
 #include <string>
 #include <iostream>
-#include "Board.hpp.original"
+#include "Board.hpp"
 #include "doctest.h"
 #include "Soldier.hpp"
 using namespace WarGame;

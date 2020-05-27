@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 #include <iostream>
-#include "Board.hpp.original"
+#include "Board.hpp"
 
 
 using namespace std;
