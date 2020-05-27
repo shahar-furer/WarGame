@@ -6,6 +6,8 @@
 #include "Board.hpp"
 #include "doctest.h"
 #include "Soldier.hpp"
+#include "FootCommander.hpp"
+#include "FootSoldier.hpp"
 using namespace WarGame;
 TEST_CASE("1") {
     Board board = Board(2, 2);

@@ -24,24 +24,8 @@ public:
     virtual ~Soldier(){
     }
 };
-//////////////////////
-class FootSoldier: public Soldier {
-public:
-    FootSoldier(int num_p): Soldier(100, 10, num_p){
-
-    }
-};
-/////////////////////
-class FootCommander : public FootSoldier {
-public:
-    FootCommander(int num_p): FootSoldier(num_p){
-        this->damage=150;
-        this->health=20;
-
-    }
 
 
-};
 
 /////////////////////
 class Sniper : public Soldier {
