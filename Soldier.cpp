@@ -1,5 +1,5 @@
 //
-// Created by netanel on 26/05/2020.
+// Created by Tehila on 26/05/2020.
 //
 
-#include "Soldier.h"
+#include "Soldier.hpp"
