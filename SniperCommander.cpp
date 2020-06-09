@@ -1,22 +1,27 @@
-#include "FootCommander.hpp"
+//
+// Created by Tehila on 25/05/2020.
+//
 
-// namespace WarGame{
-void FootCommander::BOOM(vector<vector<Soldier *> > &board, pair<int, int> dest) {
+#include "SniperCommander.hpp"
+#include <vector>
+#include <math.h>
+#include "Sniper.hpp"
+
+
+void SniperCommander::BOOM(vector<vector<Soldier *>> &board, pair<int, int> dest) {
     for (int i = 0; i < board.size(); i++) {
         for (int j = 0; j < board[i].size(); j++) {
             Soldier *s = board[i][j];
             if (s != nullptr) {
-                if (FootSoldier *fs = dynamic_cast<FootSoldier *> (s)) {
+                if (Sniper *fs = dynamic_cast<Sniper *> (s)) {
 
-                    FootCommander *fc = dynamic_cast<FootCommander *> (s);
+                    SniperCommander *fc = dynamic_cast<SniperCommander *> (s);
                     if ((fc == nullptr) || (i == dest.first && j == dest.second)) {
                         if (fs->getnum() == board[dest.first][dest.second]->getnum()) {
-                            fs->FootSoldier::BOOM(board, make_pair(i, j));
+                            fs->Sniper::BOOM(board, make_pair(i, j));
 
                         }
                     }
-
-
                 }
             }
         }

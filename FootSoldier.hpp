@@ -1,19 +1,16 @@
-//
-// Created by netanel on 27/05/2020.
-//
+#pragma once
 
-#ifndef WARGAME_THILA_FOOTSOLDIER_HPP
-#define WARGAME_THILA_FOOTSOLDIER_HPP
 #include "Soldier.hpp"
 
-//////////////////////
-    class FootSoldier: public Soldier {
-    public:
-        FootSoldier(int num_p): Soldier(100, 10, num_p){
+using namespace std;
 
-        }
-    };
+const int MAX_HP = 100;
+const int ACTION = 10;
+class FootSoldier : public Soldier
+{
 
-
-
-#endif //WARGAME_THILA_FOOTSOLDIER_HPP
+public:
+    FootSoldier(int pNUM) : Soldier(MAX_HP, ACTION, pNUM) {}
+    FootSoldier(int pNUM, int hp, int act) : Soldier(hp, act, pNUM) {}
+    void BOOM(vector<vector<Soldier *>> &board, pair<int, int> dest);
+};

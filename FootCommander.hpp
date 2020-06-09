@@ -1,19 +1,14 @@
-//
-// Created by netanel on 27/05/2020.
-//
+#pragma once
 
-#ifndef WARGAME_THILA_FOOTCOMMANDER_HPP
-#define WARGAME_THILA_FOOTCOMMANDER_HPP
 #include "FootSoldier.hpp"
 
-/////////////////////
+using namespace std;
+
+const int MAX_HP_C = 150;
+const int ACTION_C = 20;
 class FootCommander : public FootSoldier {
+
 public:
-    FootCommander(int num_p): FootSoldier(num_p){
-        this->damage=150;
-        this->health=20;
-    }
+    FootCommander(uint pNUM): FootSoldier(pNUM, MAX_HP_C, ACTION_C) {}
+    void BOOM(vector<vector<Soldier*>> &board,pair<int,int> dest);
 };
-
-
-#endif //WARGAME_THILA_FOOTCOMMANDER_HPP

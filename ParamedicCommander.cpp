@@ -1,22 +1,18 @@
-#include "FootCommander.hpp"
+#include "ParamedicCommander.hpp"
 
-// namespace WarGame{
-void FootCommander::BOOM(vector<vector<Soldier *> > &board, pair<int, int> dest) {
+void ParamedicCommander::BOOM(vector<vector<Soldier *> > &board, pair<int, int> dest) {
     for (int i = 0; i < board.size(); i++) {
         for (int j = 0; j < board[i].size(); j++) {
             Soldier *s = board[i][j];
             if (s != nullptr) {
-                if (FootSoldier *fs = dynamic_cast<FootSoldier *> (s)) {
+                if (Paramedic *fs = dynamic_cast<Paramedic *>(s)) {
 
-                    FootCommander *fc = dynamic_cast<FootCommander *> (s);
+                    ParamedicCommander *fc = dynamic_cast<ParamedicCommander *>(s);
                     if ((fc == nullptr) || (i == dest.first && j == dest.second)) {
                         if (fs->getnum() == board[dest.first][dest.second]->getnum()) {
-                            fs->FootSoldier::BOOM(board, make_pair(i, j));
-
+                            fs->Paramedic::BOOM(board, make_pair(i, j));
                         }
                     }
-
-
                 }
             }
         }
