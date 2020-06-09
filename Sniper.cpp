@@ -14,8 +14,8 @@
 
      Soldier *attack= board[location.first][location.second];
     int damege_attack=attack->getdamage();
-    int index_i;
-    int index_j;
+    int index_i=INFINITY;
+    int index_j=INFINITY;
     int team = attack->getnum();
     pair<int, int> target;
     for (int i = 0; i < board.size(); ++i) {
@@ -30,6 +30,9 @@
                 }
             }
         }
+    }
+    if(index_i==50 || index_j==50){
+        return;
     }
     cout<<index_i<<endl;
     cout<<index_j<<endl;

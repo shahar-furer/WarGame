@@ -165,6 +165,7 @@ TEST_CASE("3 VS 3") {
 }
 TEST_CASE("One soldier of this type"){
     WarGame::Board board(8,8);
+
     cout<<"i am here"<<endl;
             CHECK(!board.has_soldiers(1));
     board[{0,0}] = new FootSoldier(1);//player 1 soldier1
@@ -196,7 +197,7 @@ TEST_CASE("One soldier of this type"){
 
     board.move(1,{0,1},WarGame::Board::MoveDIR::Up);//player2 soldier2 - 130, player 2 soldier1 - 80
             CHECK(board.has_soldiers(2));
-cout<<"oooooo"<<endl;
+
     board.move(1,{0,2},WarGame::Board::MoveDIR::Up);//player2 soldier6 - 150
             CHECK(board.has_soldiers(2));
     board.move(1,{0,3},WarGame::Board::MoveDIR::Up);//player2 soldier6 - 50, player 2 soldier2 80 //need to define that commander shoots first
@@ -217,7 +218,10 @@ cout<<"oooooo"<<endl;
     board.move(1,{0,3},WarGame::Board::MoveDIR::Up); //player2 soldier1 - 0, player2 soldier2 - 30
     //just to be Sure all is dead
 
-    board.move(1,{1,2},WarGame::Board::MoveDIR::Down); //player2 soldier3 - 0, player2 soldier 6 - 20/10
+    board.move(1,{1,2},WarGame::Board::MoveDIR::Down);
+    cout<<"oooooooooooooooooooooooooooooooooooooooooo"<<endl;
+//player2 soldier3 - 0, player2 soldier 6 - 20/10
+board.printboard();
     board.move(1,{0,2},WarGame::Board::MoveDIR::Up); //player2 soldier3 - 0, player2 soldier 6 - 0
   //  board.move(1,{1,2},WarGame::Board::MoveDIR::Down); //player2 soldier3 - 0, player2 soldier 6 - 0
 
@@ -226,62 +230,62 @@ cout<<"oooooo"<<endl;
 //
 //    //good test
 }
-//TEST_CASE("2 VS 2"){
-//    WarGame::Board board(8,8);
-//            CHECK(!board.has_soldiers(1));
-//    board[{0,1}] = new FootSoldier(1); //player1 soldier1 - 100
-//    board[{0,0}] = new FootCommander(1); //player1 soldier2 - 150
-//            CHECK(board.has_soldiers(1));
-//
-//            CHECK(!board.has_soldiers(2));
-//    board[{7,0}] = new FootCommander(2); //player2 soldier1 - 100
-//    board[{7,1}] = new FootSoldier(2); //player2 soldier2 - 150
-//
-//            CHECK(board.has_soldiers(2));
-//
-//    board.move(1,{0,1},WarGame::Board::MoveDIR::Up); // player2 soldier2 - 90
-//            CHECK(board.has_soldiers(2));
-//            CHECK(board.has_soldiers(1));
-//            CHECK_THROWS(board.move(1,{0,1},WarGame::Board::MoveDIR::Up));
-//    board.move(1,{1,1},WarGame::Board::MoveDIR::Up); // player2 soldier2 - 80
-//            CHECK(board.has_soldiers(2));
-//            CHECK(board.has_soldiers(1));
-//
-//            CHECK_THROWS(board.move(2,{7,0},WarGame::Board::MoveDIR::Left));
-//    board.move(2,{7,0},WarGame::Board::MoveDIR::Down); //player1 soldier1 - 90
-//            CHECK(board.has_soldiers(2));
-//            CHECK(board.has_soldiers(1));
-//
-//    board.move(1,{0,0},WarGame::Board::MoveDIR::Up); // player2 soldier1 - 130, player2 soldier2 - 70
-//            CHECK(board.has_soldiers(2));
-//            CHECK(board.has_soldiers(1));
-//
-//    board.move(1,{1,0},WarGame::Board::MoveDIR::Up); // player2 soldier1 - 110, player2 soldier2 - 60
-//            CHECK(board.has_soldiers(2));
-//            CHECK(board.has_soldiers(1));
-//    board.move(1,{2,0},WarGame::Board::MoveDIR::Down); // player2 soldier1 - 90, player2 soldier2 - 50
-//            CHECK(board.has_soldiers(2));
-//            CHECK(board.has_soldiers(1));
-//
-//    board.move(1,{1,0},WarGame::Board::MoveDIR::Up); // player2 soldier1 - 70, player2 soldier2 - 40
-//            CHECK(board.has_soldiers(2));
-//            CHECK(board.has_soldiers(1));
-//    board.move(1,{2,0},WarGame::Board::MoveDIR::Down); // player2 soldier1 - 50, player2 soldier2 - 30
-//            CHECK(board.has_soldiers(2));
-//            CHECK(board.has_soldiers(1));
-//
-//    board.move(1,{1,0},WarGame::Board::MoveDIR::Up);// player2 soldier1 - 30, player2 soldier2 - 20
-//            CHECK(board.has_soldiers(2));
-//            CHECK(board.has_soldiers(1));
-//    board.move(1,{2,0},WarGame::Board::MoveDIR::Down); // player2 soldier1 - 10, player2 soldier2 - 10
-//            CHECK(board.has_soldiers(2));
-//            CHECK(board.has_soldiers(1));
-//
-//    board.move(1,{1,0},WarGame::Board::MoveDIR::Up);// player2 soldier1 - 0, player2 soldier2 - 0
-//
-//            CHECK(board.has_soldiers(1));
-//    board.move(1,{2,0},WarGame::Board::MoveDIR::Down); // i think youve done
-//            CHECK(board.has_soldiers(1));
-//            CHECK(!board.has_soldiers(2));
-//    //the winner is team 1
-//}
+TEST_CASE("2 VS 2"){
+    WarGame::Board board(8,8);
+            CHECK(!board.has_soldiers(1));
+    board[{0,1}] = new FootSoldier(1); //player1 soldier1 - 100
+    board[{0,0}] = new FootCommander(1); //player1 soldier2 - 150
+            CHECK(board.has_soldiers(1));
+
+            CHECK(!board.has_soldiers(2));
+    board[{7,0}] = new FootCommander(2); //player2 soldier1 - 100
+    board[{7,1}] = new FootSoldier(2); //player2 soldier2 - 150
+
+            CHECK(board.has_soldiers(2));
+
+    board.move(1,{0,1},WarGame::Board::MoveDIR::Up); // player2 soldier2 - 90
+            CHECK(board.has_soldiers(2));
+            CHECK(board.has_soldiers(1));
+            CHECK_THROWS(board.move(1,{0,1},WarGame::Board::MoveDIR::Up));
+    board.move(1,{1,1},WarGame::Board::MoveDIR::Up); // player2 soldier2 - 80
+            CHECK(board.has_soldiers(2));
+            CHECK(board.has_soldiers(1));
+
+            CHECK_THROWS(board.move(2,{7,0},WarGame::Board::MoveDIR::Left));
+    board.move(2,{7,0},WarGame::Board::MoveDIR::Down); //player1 soldier1 - 90
+            CHECK(board.has_soldiers(2));
+            CHECK(board.has_soldiers(1));
+
+    board.move(1,{0,0},WarGame::Board::MoveDIR::Up); // player2 soldier1 - 130, player2 soldier2 - 70
+            CHECK(board.has_soldiers(2));
+            CHECK(board.has_soldiers(1));
+
+    board.move(1,{1,0},WarGame::Board::MoveDIR::Up); // player2 soldier1 - 110, player2 soldier2 - 60
+            CHECK(board.has_soldiers(2));
+            CHECK(board.has_soldiers(1));
+    board.move(1,{2,0},WarGame::Board::MoveDIR::Down); // player2 soldier1 - 90, player2 soldier2 - 50
+            CHECK(board.has_soldiers(2));
+            CHECK(board.has_soldiers(1));
+
+    board.move(1,{1,0},WarGame::Board::MoveDIR::Up); // player2 soldier1 - 70, player2 soldier2 - 40
+            CHECK(board.has_soldiers(2));
+            CHECK(board.has_soldiers(1));
+    board.move(1,{2,0},WarGame::Board::MoveDIR::Down); // player2 soldier1 - 50, player2 soldier2 - 30
+            CHECK(board.has_soldiers(2));
+            CHECK(board.has_soldiers(1));
+
+    board.move(1,{1,0},WarGame::Board::MoveDIR::Up);// player2 soldier1 - 30, player2 soldier2 - 20
+            CHECK(board.has_soldiers(2));
+            CHECK(board.has_soldiers(1));
+    board.move(1,{2,0},WarGame::Board::MoveDIR::Down); // player2 soldier1 - 10, player2 soldier2 - 10
+            CHECK(board.has_soldiers(2));
+            CHECK(board.has_soldiers(1));
+
+    board.move(1,{1,0},WarGame::Board::MoveDIR::Up);// player2 soldier1 - 0, player2 soldier2 - 0
+
+            CHECK(board.has_soldiers(1));
+    board.move(1,{2,0},WarGame::Board::MoveDIR::Down); // i think youve done
+            CHECK(board.has_soldiers(1));
+            CHECK(!board.has_soldiers(2));
+    //the winner is team 1
+}

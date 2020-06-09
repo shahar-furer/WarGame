@@ -4,7 +4,7 @@
 void FootSoldier::BOOM(vector<vector<Soldier *> > &board, pair<int, int> loaction) {
 
     double closest = board.size() * board.size();
-    int indexi, indexj;
+    int indexi=0, indexj=0;
     int found = 0;
 
     for (int i = 0; i < board.size(); i++) {
@@ -21,6 +21,8 @@ void FootSoldier::BOOM(vector<vector<Soldier *> > &board, pair<int, int> loactio
                 }
             }
         }
+    }if (indexi==INFINITY){
+        return;
     }
     if (found) {
         Soldier *s = board[indexi][indexj];

@@ -79,7 +79,8 @@ namespace WarGame {
             for (int j = 0; j < this->board[i].size(); j++) {
                 if (this->board[i][j])
 
-                    cout << "  " << this->board[i][j]->getnum() << "  " << this->board[i][j]->getCurrHP();
+                    cout << "  " << this->board[i][j]->getnum() << "  " << this->board[i][j]->getCurrHP()
+                    << "  "<<typeid(*this->board[i][j]).name();
                 else
                     cout << "  ------  ";
 
